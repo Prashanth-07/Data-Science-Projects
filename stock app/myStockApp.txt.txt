@@ -1,0 +1,19 @@
+import streamlit as st: This line imports the Streamlit library and gives it the alias st. Streamlit is used to create interactive web applications in Python.
+
+import yfinance as yf: This line imports the yfinance library and gives it the alias yf. Yfinance is used to fetch stock market data from Yahoo Finance.
+
+import pandas as pd: This line imports the pandas library and gives it the alias pd. Pandas is used for data manipulation and analysis.
+
+st.write(""" ... """): This code block uses st.write to display a title and description in the Streamlit app. The title is "Simple Stock Price App," and the description mentions that it shows the closing price and volume of Google's stock.
+
+tickerSymbol = 'GOOGL': This line sets the stock ticker symbol (in this case, 'GOOGL' for Alphabet Inc.) that will be used to fetch stock price data.
+
+tickerData = yf.Ticker(tickerSymbol): This line fetches information about the stock with the ticker symbol specified ('GOOGL') and assigns it to the variable tickerData.
+
+tickerDf = tickerData.history(period='1d', start='2010-5-31', end='2020-5-31'): This line fetches historical stock price data for the specified stock symbol ('GOOGL') for a specific date range, from May 31, 2010, to May 31, 2020. The data is stored in the variable tickerDf.
+
+st.line_chart(tickerDf.Close): This line creates a line chart in the Streamlit app using the historical closing prices from tickerDf. It displays the trend of Google's stock closing prices over time.
+
+st.line_chart(tickerDf.Volume): Similar to the previous line, this one creates a line chart for the trading volume of Google's stock over time. It shows how the trading volume has changed over the selected date range.
+
+In summary, this code sets up a simple Streamlit web app that displays the closing prices and trading volumes of Google's stock for a specific date range. It uses Streamlit for the user interface, yfinance to fetch the financial data, and Pandas to manipulate and store the data before displaying it in line charts.
